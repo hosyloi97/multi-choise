@@ -9,6 +9,7 @@ package sic.hust.multiple.choise.model;
  *
  * @author Mr Loi Ho
  */
+@Data
 public class Admin {
     private int idAdmin;
     private String nameAdmin;
@@ -23,28 +24,4 @@ public class Admin {
         this.passwordAdmin = passwordAdmin;
     }
 
-    public int getIdAdmin() {
-        return idAdmin;
-    }
-
-    public void setIdAdmin(int idAdmin) {
-        this.idAdmin = idAdmin;
-    }
-
-    public String getNameAdmin() {
-        return nameAdmin;
-    }
-
-    public void setNameAdmin(String nameAdmin) {
-        this.nameAdmin = nameAdmin;
-    }
-
-    public String getPasswordAdmin() {
-        return passwordAdmin;
-    }
-
-    public void setPasswordAdmin(String passwordAdmin) {
-        this.passwordAdmin = passwordAdmin;
-    }
-    
 }

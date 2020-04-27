@@ -35,10 +35,10 @@ public class Login extends HttpServlet {
         System.out.println("name: "+ name +"\n pass:" + password);
         System.out.println(service.checkRoleAdmin(name, password)+"   "+service.checkRoleUser(name, password));
         if (service.checkRoleAdmin(name, password)) {
-            resp.sendRedirect("AdminLogout.jsp");
+            resp.sendRedirect("HomeAdmin.jsp");
         } else 
         if (service.checkRoleUser(name, password)){
-            resp.sendRedirect("UserLogout.jsp");
+            resp.sendRedirect("HomeUser.jsp");
         }else {
             resp.sendRedirect("Login.jsp");
         }

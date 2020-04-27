@@ -9,6 +9,7 @@ package sic.hust.multiple.choise.model;
  *
  * @author Mr Loi Ho
  */
+@Data
 public class User {
     private int idUser;
     private String nameUser;
@@ -30,29 +31,5 @@ public class User {
         this.passwordUser = passwordUser;
     }
 
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public String getNameUser() {
-        return nameUser;
-    }
-
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
-    }
-
-    public String getPasswordUser() {
-        return passwordUser;
-    }
-
-    public void setPasswordUser(String passwordUser) {
-        this.passwordUser = passwordUser;
-    }
-    
     
 }
