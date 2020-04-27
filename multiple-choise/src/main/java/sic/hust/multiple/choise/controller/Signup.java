@@ -32,8 +32,15 @@ public class Signup extends HttpServlet {
         String email = req.getParameter("inpEmail");
         
         User user= new User(name, password, email);
-        String result = (service.addNewAccount(user)) ? "success" :"false";
+        boolean result = (service.addNewAccount(user)) ? true :false;
         log(result);
-//        PrintWriter out = new PrintWriter();
+        if(result) {
+            log("create a new user successfully!");
+            resp.sendRedirect("Login.jsp");
+        }
+        else{
+            log("create a new user fail!");
+            resp.sendRedirect("Login.jsp");
+        }
     }
 }

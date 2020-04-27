@@ -63,11 +63,11 @@ INSERT INTO `account_user` VALUES (7, 'name123', 'pass123', 'email123');
 -- ----------------------------
 DROP TABLE IF EXISTS `exam`;
 CREATE TABLE `exam`  (
-  `idExam` int(15) NOT NULL AUTO_INCREMENT,
-  `nameExam` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `quantityQuestion` int(15) NULL DEFAULT NULL,
   `idQues` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`idExam`, `nameExam`) USING BTREE
+  PRIMARY KEY (`id`, `name`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -81,8 +81,8 @@ INSERT INTO `exam` VALUES (2, 'Kiểm tra 2', 2, '3;4');
 -- ----------------------------
 DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question`  (
-  `idQuestion` int(15) NOT NULL AUTO_INCREMENT,
-  `titleQuestion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `optionA` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `optionB` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `optionC` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,

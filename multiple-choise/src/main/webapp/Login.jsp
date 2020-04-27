@@ -37,7 +37,7 @@
 				<form class="sign-in-htm" action="login" method="POST">
 					<div class="group">
 						<label for="user" class="label">Username: </label>
-                                                <input id="user" type="text" class="input" name="inpName">
+                        <input id="user" type="text" class="input" name="inpName">
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Password: </label>
@@ -55,7 +55,7 @@
 						<a href="#forgot">Forgot Password?</a>
 					</div>-->
 				</form>
-				<div class="sign-up-htm" action="signup" method="POST">
+				<form class="sign-up-htm" action="signup" method="POST">
 					<div class="group">
 						<label for="user" class="label">Username: </label>
 						<input id="user" type="text" class="input" name="inpName">
@@ -80,7 +80,7 @@
 						<label for="tab-1">Already Member?</a>
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 
