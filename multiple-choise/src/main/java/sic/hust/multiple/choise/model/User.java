@@ -5,26 +5,22 @@
  */
 package sic.hust.multiple.choise.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  *
  * @author Mr Loi Ho
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     private int idUser;
     private String nameUser;
     private String passwordUser;
     private String email;
-
-    public User() {
-    }
-
-    public User(String nameUser, String passwordUser, String email) {
-//        this.idUser = idUser;
-        this.nameUser = nameUser;
-        this.passwordUser = passwordUser;
-        this.email = email;
-    }
 
     public User(String nameUser, String passwordUser) {
         this.nameUser = nameUser;

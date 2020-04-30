@@ -33,7 +33,6 @@ public class Signup extends HttpServlet {
         
         User user= new User(name, password, email);
         boolean result = (service.addNewAccount(user)) ? true :false;
-        log(result);
         if(result) {
             log("create a new user successfully!");
             resp.sendRedirect("Login.jsp");

@@ -6,6 +6,8 @@
 package sic.hust.multiple.choise.service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import sic.hust.multiple.choise.dao.DBConnection;
 import sic.hust.multiple.choise.model.Exam;

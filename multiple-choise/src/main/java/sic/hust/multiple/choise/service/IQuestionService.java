@@ -5,13 +5,14 @@
  */
 package sic.hust.multiple.choise.service;
 
+import java.util.List;
 import sic.hust.multiple.choise.model.Question;
 
 /**
  *
  * @author Mr Loi Ho
  */
-public interface IExamService {
+public interface IQuestionService {
 
     public List<Question> findAllQuestion();
 

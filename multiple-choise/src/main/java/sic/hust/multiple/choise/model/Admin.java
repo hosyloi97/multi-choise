@@ -5,23 +5,19 @@
  */
 package sic.hust.multiple.choise.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  *
  * @author Mr Loi Ho
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Admin {
     private int idAdmin;
     private String nameAdmin;
     private String passwordAdmin;
-
-    public Admin() {
-    }
-
-    public Admin(int idAdmin, String nameAdmin, String passwordAdmin) {
-        this.idAdmin = idAdmin;
-        this.nameAdmin = nameAdmin;
-        this.passwordAdmin = passwordAdmin;
-    }
-
 }
