@@ -21,11 +21,11 @@
     <body>
 
         <!-- =============================  Header menu of page  ============================= -->
-            <%@include file="HeaderGuestMenu.jsp"%>
+            <%@include file="./jsp/HeaderMenuGuest.jsp"%>
 
 
         <!-- ============================= body of page ============================= -->
-            <%@include file="BodyGuest.jsp"%>
+            <%@include file="./jsp/BodyGuest.jsp"%>
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
@@ -36,6 +36,6 @@
     </body>
 
             <!-- ============================= footer of page ============================= -->
-            <%@include file="Footer.jsp"%>
+            <%@include file="./jsp/Footer.jsp"%>
 
 </html>
