@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sic.hust.multiple.choise.service;
+package sic.hust.multiple.choise.service.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,6 +11,8 @@ import java.util.List;
 
 import sic.hust.multiple.choise.dao.DBConnection;
 import sic.hust.multiple.choise.model.Exam;
+import sic.hust.multiple.choise.model.User;
+import sic.hust.multiple.choise.service.IExamService;
 
 /**
  * @author Mr Loi Ho
@@ -23,7 +25,7 @@ public class ExamServiceImpl implements IExamService {
     public List<Exam> findAllExams() {
         List<Exam> exams = new ArrayList<Exam>();
         try {
-            exams = dao.findAllExams();
+            exams = dao.findAllExam();
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
@@ -41,22 +43,9 @@ public class ExamServiceImpl implements IExamService {
         return exam;
     }
 
-//    public static void main(String[] args) {
-//        PersonServiceImp service = new PersonServiceImp();
-//        System.out.println(service.checkRoleAdmin("admin1","1234"));
-//        System.out.println(service.checkRoleUser("mrloiho","1234"));
-//    }
-
-    @Override
-    public boolean addNewAccount(User user) {
-        boolean check = false;
-        try {
-            check = dao.addNewUser(user);
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-
-        return check;
+    public static void main(String[] args) {
+       ExamServiceImpl service = new ExamServiceImpl();
+        System.out.println(service.findExamById(1));
     }
 
 }
