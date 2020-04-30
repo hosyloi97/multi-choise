@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sic.hust.multiple.choise.service;
+package sic.hust.multiple.choise.service.impl;
 
 import java.sql.SQLException;
 import sic.hust.multiple.choise.dao.DBConnection;
 import sic.hust.multiple.choise.model.User;
+import sic.hust.multiple.choise.service.IPersonService;
 
 /**
  *
