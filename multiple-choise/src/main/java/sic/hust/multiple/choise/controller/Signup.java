@@ -5,7 +5,6 @@
  */
 package sic.hust.multiple.choise.controller;
 
-import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,33 +12,41 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import sic.hust.multiple.choise.model.User;
-import sic.hust.multiple.choise.service.PersonServiceImp;
+import sic.hust.multiple.choise.service.impl.PersonServiceImp;
 
 /**
  *
  * @author Mr Loi Ho
  */
-@WebServlet("/signup")
+@WebServlet(name = "signup", urlPatterns = "/signup")
 public class Signup extends HttpServlet {
 
     PersonServiceImp service = new PersonServiceImp();
+    User user = new User();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String name = req.getParameter("inpName");
         String password = req.getParameter("inpPass");
         String email = req.getParameter("inpEmail");
-        
-        User user= new User(name, password, email);
-        boolean result = (service.addNewAccount(user)) ? true :false;
-        if(result) {
-            log("create a new user successfully!");
+//        System.out.println("name: " + name + "\n pass:" + password + "\n email" + email);
+        user.setNameUser(name);
+        user.setPasswordUser(password);
+        user.setEmail(email);
+        System.out.println(user);
+        boolean result = service.addNewAccount(user);
+        if (result) {
+            System.out.println("Signup successfull with " + user);
             resp.sendRedirect("Login.jsp");
-        }
-        else{
-            log("create a new user fail!");
+
+        } else {
+            System.out.println("Signup fail!!");
             resp.sendRedirect("Login.jsp");
+
         }
     }
+
 }

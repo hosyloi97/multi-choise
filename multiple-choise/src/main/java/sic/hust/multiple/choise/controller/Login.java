@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sic.hust.multiple.choise.service.PersonServiceImp;
+import sic.hust.multiple.choise.service.impl.PersonServiceImp;
 
 /**
  *

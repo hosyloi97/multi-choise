@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sic.hust.multiple.choise.service;
+package sic.hust.multiple.choise.service.impl;
 
 import java.sql.SQLException;
 import sic.hust.multiple.choise.dao.DBConnection;
 import sic.hust.multiple.choise.model.User;
+import sic.hust.multiple.choise.service.IPersonService;
 
 /**
  *
@@ -39,11 +40,13 @@ public class PersonServiceImp implements IPersonService {
         }
         return check;
     }
-    
+
 //    public static void main(String[] args) {
 //        PersonServiceImp service = new PersonServiceImp();
+//        User user = new User("adm", "pass", "email12345");
 //        System.out.println(service.checkRoleAdmin("admin1","1234"));
 //        System.out.println(service.checkRoleUser("mrloiho","1234"));
+//        System.out.println((user));
 //    }
 
     @Override
@@ -54,7 +57,7 @@ public class PersonServiceImp implements IPersonService {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        
+
         return check;
     }
 

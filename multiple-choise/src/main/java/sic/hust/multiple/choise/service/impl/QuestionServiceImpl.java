@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sic.hust.multiple.choise.service;
+package sic.hust.multiple.choise.service.impl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import sic.hust.multiple.choise.dao.DBConnection;
 import sic.hust.multiple.choise.model.Question;
+import sic.hust.multiple.choise.service.IQuestionService;
 
 /**
  * @author Mr Loi Ho
@@ -18,8 +21,8 @@ public class QuestionServiceImpl implements IQuestionService {
     DBConnection dao = new DBConnection();
 
     @Override
-    public List<Question> findAllQuestions() {
-        List<Quesion> questions = new ArrayList<Question>();
+    public List<Question> findAllQuestion() {
+        List<Question> questions = new ArrayList<Question>();
         try {
             questions = dao.findAllQuestions();
         } catch (SQLException ex) {
@@ -30,10 +33,10 @@ public class QuestionServiceImpl implements IQuestionService {
     }
 
     @Override
-    public Question fingQuestionById(int id) {
+    public Question findQuestionByid(int id) {
         Question question = new Question();
         try {
-            exam = dao.findQuestionById(id);
+            question = dao.findQuestionById(id);
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
@@ -41,21 +44,8 @@ public class QuestionServiceImpl implements IQuestionService {
     }
 
 //    public static void main(String[] args) {
-//        PersonServiceImp service = new PersonServiceImp();
-//        System.out.println(service.checkRoleAdmin("admin1","1234"));
-//        System.out.println(service.checkRoleUser("mrloiho","1234"));
+//        QuestionServiceImpl service = new QuestionServiceImpl();
+//        System.out.println(service.findAllQuestion());
 //    }
-
-    @Override
-    public boolean addNewAccount(User user) {
-        boolean check = false;
-        try {
-            check = dao.addNewUser(user);
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-
-        return check;
-    }
 
 }
