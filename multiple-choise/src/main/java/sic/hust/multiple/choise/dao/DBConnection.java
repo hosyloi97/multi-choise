@@ -48,13 +48,10 @@ public class DBConnection {
         state.setString(1, uname);
         state.setString(2, pass);
         ResultSet rs = state.executeQuery();
-        if (rs.next()) {
+        while (rs.next()) {
             check = true;
-//            System.out.println(rs.getString("id"));
-//            System.out.println(rs.getString("name"));
-//            System.out.println(rs.getString("password"));
         }
-
+        rs.close();
         state.close();
         disconnect();
         return check;
@@ -78,15 +75,13 @@ public class DBConnection {
     }
 
     public List<User> findAllUser() throws SQLException {
-        boolean check = false;
         connect();
         Statement state = null;
         List<User> users = new ArrayList<User>();
-        String sql = "select * from user";
         state = conn.createStatement();
+        String sql = "select * from account_user";
         ResultSet rs = state.executeQuery(sql);
-        if (rs.next()) {
-            check = true;
+        while (rs.next()) {
             User user = new User();
             user.setId(rs.getInt("id"));
             user.setNameUser(rs.getString("name"));
@@ -94,6 +89,7 @@ public class DBConnection {
             user.setEmail(rs.getString("email"));
             users.add(user);
         }
+        rs.close();
         state.close();
         disconnect();
         return users;
@@ -102,16 +98,17 @@ public class DBConnection {
     public User findUserByid(int id) throws SQLException {
         connect();
         User user = new User();
-        String sql = "select * from user where id=?";
+        String sql = "select * from account_user where id=?";
         PreparedStatement state = conn.prepareStatement(sql);
         state.setInt(1, id);
         ResultSet rs = state.executeQuery(sql);
-        if (rs.next()) {
+        while (rs.next()) {
             user.setId(rs.getInt("id"));
             user.setNameUser(rs.getString("name"));
             user.setPasswordUser(rs.getString("password"));
             user.setEmail(rs.getString("email"));
         }
+        rs.close();
         state.close();
         disconnect();
         return user;
@@ -127,13 +124,10 @@ public class DBConnection {
         state.setString(1, uname);
         state.setString(2, pass);
         ResultSet rs = state.executeQuery();
-        if (rs.next()) {
+        while (rs.next()) {
             check = true;
-//            System.out.println(rs.getString("id"));
-//            System.out.println(rs.getString("name"));
-//            System.out.println(rs.getString("password"));
         }
-
+        rs.close();
         state.close();
         disconnect();
         return check;
@@ -143,16 +137,17 @@ public class DBConnection {
         connect();
         Statement state = null;
         List<Admin> admins = new ArrayList<Admin>();
-        String sql = "select * from admin";
+        String sql = "select * from account_admin";
         state = conn.createStatement();
         ResultSet rs = state.executeQuery(sql);
-        if (rs.next()) {
+        while (rs.next()) {
             Admin admin = new Admin();
             admin.setId(rs.getInt("id"));
             admin.setNameAdmin(rs.getString("name"));
             admin.setPasswordAdmin(rs.getString("password"));
             admins.add(admin);
         }
+        rs.close();
         state.close();
         disconnect();
         return admins;
@@ -162,7 +157,7 @@ public class DBConnection {
         boolean check = false;
         connect();
         Admin admin = new Admin();
-        String sql = "select * from admin where id=?";
+        String sql = "select * from account_admin where id=?";
         PreparedStatement state = conn.prepareStatement(sql);
         state.setInt(1, id);
         ResultSet rs = state.executeQuery(sql);
@@ -186,7 +181,7 @@ public class DBConnection {
         String sql = "select * from exam";
         state = conn.createStatement();
         ResultSet rs = state.executeQuery(sql);
-        if (rs.next()) {
+        while (rs.next()) {
             check = true;
             Exam exam = new Exam();
             exam.setId(rs.getInt("id"));
@@ -201,21 +196,19 @@ public class DBConnection {
     }
 
     public Exam findExamById(int id) throws SQLException {
-        boolean check = false;
-        String sql = "select * from exam where id =?";
+       String sql = "select * from exam where id=?";
         connect();
         Exam exam = new Exam();
         PreparedStatement state = conn.prepareStatement(sql);
         state.setInt(1, id);
-        ResultSet rs = state.executeQuery(sql);
+        ResultSet rs = state.executeQuery();
         if (rs.next()) {
-            check = true;
             exam.setId(rs.getInt("id"));
             exam.setName(rs.getString("nameExam"));
             exam.setQuantityQues(rs.getInt("quantityQuestion"));
             exam.setIdQues(rs.getString("idQues"));
         }
-
+        rs.close();
         state.close();
         disconnect();
         return exam;
@@ -223,15 +216,13 @@ public class DBConnection {
 
     //    --------------------------------------DAO for Question---------------------------------------------------->
     public List<Question> findAllQuestions() throws SQLException {
-        boolean check = false;
         connect();
         Statement state = null;
         List<Question> questions = new ArrayList<Question>();
         String sql = "select * from question";
         state = conn.createStatement();
         ResultSet rs = state.executeQuery(sql);
-        if (rs.next()) {
-            check = true;
+        while (rs.next()) {
             Question question = new Question();
             question.setId(rs.getInt("id"));
             question.setTitle(rs.getString("title"));
@@ -248,7 +239,6 @@ public class DBConnection {
     }
 
     public Question findQuestionById(int id) throws SQLException {
-        boolean check = false;
         String sql = "select * from question where id=?";
         connect();
         Question question = new Question();
@@ -256,7 +246,6 @@ public class DBConnection {
         state.setInt(1, id);
         ResultSet rs = state.executeQuery();
         if (rs.next()) {
-            check = true;
             question.setId(rs.getInt("id"));
             question.setTitle(rs.getString("title"));
             question.setOptionA(rs.getString("optionA"));
@@ -265,17 +254,14 @@ public class DBConnection {
             question.setOptionD(rs.getString("optionD"));
             question.setAnswer(rs.getString("answer"));
         }
-
+        rs.close();
         state.close();
         disconnect();
         return question;
     }
-
+//
 //    public static void main(String[] args) throws SQLException {
 //        DBConnection dao = new DBConnection();
-//        User user = new User("user2", "1234");
-//        System.out.println(dao.checkUserExist("mrloiho", "1234"));
-//        System.out.println(dao.checkAdminExist("admin1", "1234"));
-//        System.out.println(dao.addNewUser(user));
+//        System.out.println(dao.findAllExam());
 //    }
 }
