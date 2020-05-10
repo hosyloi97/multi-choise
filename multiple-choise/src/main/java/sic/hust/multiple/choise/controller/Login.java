@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
         if (service.checkRoleUser(name, password)){
             resp.sendRedirect("HomeUser.jsp");
         }else {
-            resp.sendRedirect("Login.jsp");
+            resp.sendRedirect("/multiChoise/loadData");
         }
     }
 
