@@ -1,3 +1,9 @@
+<%-- 
+    Document   : Exam
+    Created on : May 10, 2020, 10:15:12 AM
+    Author     : Mr Loi Ho
+--%>
+
 <%@page import="java.util.List"%>
 <%@page import="sic.hust.multiple.choise.model.Question"%>
 <%@page import="sic.hust.multiple.choise.model.Exam"%>
@@ -7,48 +13,29 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Page Title</title>
 
-        <!-- css icon -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-              integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-        <title>Multiple Choise</title>
-
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-        <!-- Custom styles for this template -->
-        <!--<link href="css/login.css" rel="stylesheet">-->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
-
     <body>
-
-        <!-- =============================  Header menu of page  ============================= -->
-        <%@include file="../jsp/HeaderMenuGuest.jsp" %>
-
-        <div class="container" style="background-color: #ccc">
-            <br/>
-            <br/>
-            <br/>
+        <div class="container">
             <%
                 ExamServiceImpl service = new ExamServiceImpl();
                 Integer id = Integer.parseInt(session.getAttribute("id").toString());
                 System.out.println(id);
                 Exam exam = service.findExamById(id);
                 int i = 1;
-                boolean check = false;
             %>
-            <h3 style="text-align: center; color: blue"> <%= exam.getName()%> </h3>
-            <br/>
+            <h4>Exam <%= exam.getName()%> </h4>
             <form>
-                <% for (Question question : exam.getListQuestions()) {
-                        String nameRadio = "radio" + question.getId();
-                %>
+                <% for (Question question : exam.getListQuestions()) {%>
 
                 <div class="form-group row">
-                    <label class="col-sm-2">Câu hỏi số: <%= i++%> </label>
+                    <label class="col-sm-2">Câu hỏi số: <%= i%> </label>
                     <div class="col-sm-10">
                         <div class="radio">
                             <label>
@@ -57,37 +44,33 @@
                         </div>
                         <div>
                             <label>
-                                <input type="radio" name=<%=nameRadio%> id="optionA">
+                                <input type="radio" name="gridRadios" id="optionA">
                                 <%= question.getOptionA()%>
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name=<%=nameRadio%> id="optionB">
+                                <input type="radio" name="gridRadios" id="optionB">
                                 <%= question.getOptionB()%>
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name=<%=nameRadio%> id="optionC">
+                                <input type="radio" name="gridRadios" id="optionC">
                                 <%= question.getOptionC()%>
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name=<%=nameRadio%> id="optionD">
+                                <input type="radio" name="gridRadios" id="optionD">
                                 <%= question.getOptionD()%>
                             </label>
                         </div>
-                        <div>
-                            <label hidden="false">
-                                <input type="text">
-                                <%= question.getAnswer()%>
-                            </label>
-                        </div>
+
                     </div>
                 </div>
-                <% }%>
+                <%i++;
+                }%>
 
             </form>
         </div>
