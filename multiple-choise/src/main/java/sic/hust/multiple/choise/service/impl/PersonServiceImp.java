@@ -40,11 +40,13 @@ public class PersonServiceImp implements IPersonService {
         }
         return check;
     }
-    
+
 //    public static void main(String[] args) {
 //        PersonServiceImp service = new PersonServiceImp();
+//        User user = new User("adm", "pass", "email12345");
 //        System.out.println(service.checkRoleAdmin("admin1","1234"));
 //        System.out.println(service.checkRoleUser("mrloiho","1234"));
+//        System.out.println((user));
 //    }
 
     @Override
@@ -55,7 +57,7 @@ public class PersonServiceImp implements IPersonService {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        
+
         return check;
     }
 
