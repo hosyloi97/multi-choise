@@ -77,6 +77,7 @@
                             <label>
                                 <input type="radio" name=<%=nameRadio%> id="optionD">
                                 <%= question.getOptionD()%>
+                                
                             </label>
                         </div>
                         <div>
