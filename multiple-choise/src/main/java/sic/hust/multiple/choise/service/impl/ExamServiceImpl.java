@@ -69,18 +69,4 @@ public class ExamServiceImpl implements IExamService {
         }
         return questions;
     }
-
-    public static void main(String[] args) {
-       ExamServiceImpl servic = new ExamServiceImpl();
-//       String listQues = "1,2,3,4";
-//       List<Integer> ints = servic.convertStringToListInt(listQues);
-//        System.out.println(ints);
-//        System.out.println(servic.getListQuestion(listQues));
-//            System.out.println(servic.findExamById(1));
-            Exam exam = servic.findExamById(1);
-            Question ques = exam.getListQuestions().get(1);
-            System.out.println(ques);
-//           System.out.println(servic.getListQuestion(exam.getIdQues()));
-    }
-
 }

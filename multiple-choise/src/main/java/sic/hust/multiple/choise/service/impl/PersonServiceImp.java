@@ -6,7 +6,10 @@
 package sic.hust.multiple.choise.service.impl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import sic.hust.multiple.choise.dao.DBConnection;
+import sic.hust.multiple.choise.model.Admin;
 import sic.hust.multiple.choise.model.User;
 import sic.hust.multiple.choise.service.IPersonService;
 
@@ -41,14 +44,6 @@ public class PersonServiceImp implements IPersonService {
         return check;
     }
 
-//    public static void main(String[] args) {
-//        PersonServiceImp service = new PersonServiceImp();
-//        User user = new User("adm", "pass", "email12345");
-//        System.out.println(service.checkRoleAdmin("admin1","1234"));
-//        System.out.println(service.checkRoleUser("mrloiho","1234"));
-//        System.out.println((user));
-//    }
-
     @Override
     public boolean addNewAccount(User user) {
         boolean check = false;
@@ -59,6 +54,50 @@ public class PersonServiceImp implements IPersonService {
         }
 
         return check;
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        List<User> users = new ArrayList<User>();
+        try {
+            users = dao.findAllUser();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return users;
+    }
+
+    @Override
+    public User findUserById(int id) {
+        User user = new User();
+        try {
+            user = dao.findUserByid(id);
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return user;
+    }
+
+    @Override
+    public List<Admin> findAllAdmin() {
+        List<Admin> admins = new ArrayList<Admin>();
+        try {
+            admins = dao.findAllAdmin();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return admins;
+    }
+
+    @Override
+    public Admin findAdminById(int id) {
+        Admin admin = new Admin();
+        try {
+            admin = dao.findAdminById(id);
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return admin;
     }
 
 }

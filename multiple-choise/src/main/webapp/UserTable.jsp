@@ -34,6 +34,7 @@
     </head>
 
     <body>
+
         <!-- =============================  Header menu of page  ============================= -->
         <%@include file="../jsp/HeaderMenuUser.jsp" %>
         <div class="container" style="background-color: #ccc">
@@ -41,8 +42,8 @@
             <br/>
             <br/>
             <%
-                ExamServiceImpl service = new ExamServiceImpl();
-                List<Exam> exams = service.findAllExams();
+                PersonServiceImp service = new PersonServiceImp();
+                List<User> users = service.findAllUser();
                 int i = 1;
             %>
             <div class="col-lg-9">
@@ -55,18 +56,16 @@
                     <tr>
                         <th>STT</th>
                         <th>Name</th>
-                        <th>Quantity Question</th>
-                        <th>Id Questions</th>
-                        <th>Actions</th>
+                        <th>Email</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tr>
-                    <% for (Exam exam : exams) {%>
+                    <% for (User user : users) {%>
 
                     <td><%= i%></td>
-                    <td><%= exam.getName()%></td>
-                    <td><%= exam.getQuantityQues()%></td>
-                    <td><%= exam.getIdQues()%></td>
+                    <td><%= user.getNameUser()%></td>
+                    <td><%= user.getEmail()%></td>
                     <td><button type="button" class="btn btn-danger">Delete</button></td>
                 </tr>
                 <%

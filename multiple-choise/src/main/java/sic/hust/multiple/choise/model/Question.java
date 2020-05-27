@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class Question {
     private int id;
     private String title;
+    private int topicId;
     private String optionA;
     private String optionB;
     private String optionC;

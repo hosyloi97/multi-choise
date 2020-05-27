@@ -45,7 +45,7 @@ public class QuestionServiceImpl implements IQuestionService {
 
 //    public static void main(String[] args) {
 //        QuestionServiceImpl service = new QuestionServiceImpl();
-//        System.out.println(service.findAllQuestion());
+//        System.out.println(service.findQuestionByid(20));
 //    }
 
 }

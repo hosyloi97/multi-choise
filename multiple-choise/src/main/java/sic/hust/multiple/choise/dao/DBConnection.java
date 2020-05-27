@@ -12,6 +12,7 @@ import java.util.List;
 import sic.hust.multiple.choise.model.Admin;
 import sic.hust.multiple.choise.model.Exam;
 import sic.hust.multiple.choise.model.Question;
+import sic.hust.multiple.choise.model.Topic;
 
 import sic.hust.multiple.choise.model.User;
 
@@ -196,7 +197,7 @@ public class DBConnection {
     }
 
     public Exam findExamById(int id) throws SQLException {
-       String sql = "select * from exam where id=?";
+        String sql = "select * from exam where id=?";
         connect();
         Exam exam = new Exam();
         PreparedStatement state = conn.prepareStatement(sql);
@@ -226,6 +227,7 @@ public class DBConnection {
             Question question = new Question();
             question.setId(rs.getInt("id"));
             question.setTitle(rs.getString("title"));
+            question.setTopicId(rs.getInt("topicId"));
             question.setOptionA(rs.getString("optionA"));
             question.setOptionB(rs.getString("optionB"));
             question.setOptionC(rs.getString("optionC"));
@@ -233,6 +235,7 @@ public class DBConnection {
             question.setAnswer(rs.getString("answer"));
             questions.add(question);
         }
+        rs.close();
         state.close();
         disconnect();
         return questions;
@@ -248,6 +251,7 @@ public class DBConnection {
         if (rs.next()) {
             question.setId(rs.getInt("id"));
             question.setTitle(rs.getString("title"));
+            question.setTopicId(rs.getInt("topicId"));
             question.setOptionA(rs.getString("optionA"));
             question.setOptionB(rs.getString("optionB"));
             question.setOptionC(rs.getString("optionC"));
@@ -259,9 +263,68 @@ public class DBConnection {
         disconnect();
         return question;
     }
-//
+
+    public boolean addNewQuestion(Question question) throws SQLException {
+        boolean check = false;
+        String sql = "insert into question(title, optionA,optionB,optionC,optionD,answer,topicId) VALUES(?,?,?,?,?,?,?)";
+        connect();
+
+        PreparedStatement state = conn.prepareStatement(sql);
+        state.setString(1, question.getTitle());
+        state.setInt(7, question.getTopicId());
+        state.setString(2, question.getOptionA());
+        state.setString(3, question.getOptionB());
+        state.setString(4, question.getOptionC());
+        state.setString(5, question.getOptionD());
+        state.setString(6, question.getAnswer());
+
+        check = state.executeUpdate() > 0;
+        state.close();
+        disconnect();
+        return check;
+    }
+
+    //    --------------------------------------DAO for Topic---------------------------------------------------->
+    public List<Topic> findAllTopics() throws SQLException {
+        connect();
+        Statement state = null;
+        List<Topic> topics = new ArrayList<Topic>();
+        String sql = "select * from topic";
+        state = conn.createStatement();
+        ResultSet rs = state.executeQuery(sql);
+        while (rs.next()) {
+            Topic topic = new Topic();
+            topic.setId(rs.getInt("id"));
+            topic.setName(rs.getString("name"));
+            topics.add(topic);
+        }
+        rs.close();
+        state.close();
+        disconnect();
+        return topics;
+    }
+
+    public Topic findTopicById(int id) throws SQLException {
+        String sql = "select * from topic where id=?";
+        connect();
+        Topic topic = new Topic();
+        PreparedStatement state = conn.prepareStatement(sql);
+        state.setInt(1, id);
+        ResultSet rs = state.executeQuery();
+        if (rs.next()) {
+            topic.setId(rs.getInt("id"));
+            topic.setName(rs.getString("name"));
+        }
+        rs.close();
+        state.close();
+        disconnect();
+        return topic;
+    }
+
 //    public static void main(String[] args) throws SQLException {
 //        DBConnection dao = new DBConnection();
-//        System.out.println(dao.findAllExam());
+//        System.out.println(dao.findAllTopics());
+////        Question question = new Question("title", 1, "optionA", "optionB", "optionC", "optionD", "A");
+////        dao.addNewQuestion(question);
 //    }
 }

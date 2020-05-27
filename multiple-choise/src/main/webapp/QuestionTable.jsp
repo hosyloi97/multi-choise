@@ -4,13 +4,9 @@
     Author     : Mr Loi Ho
 --%>
 
-<%@page import="sic.hust.multiple.choise.model.User"%>
-<%@page import="sic.hust.multiple.choise.service.impl.PersonServiceImp"%>
 <%@page import="sic.hust.multiple.choise.service.impl.QuestionServiceImpl"%>
 <%@page import="sic.hust.multiple.choise.model.Question"%>
-<%@page import="sic.hust.multiple.choise.service.impl.ExamServiceImpl"%>
 <%@page import="java.util.List"%>
-<%@page import="sic.hust.multiple.choise.model.Exam"%>
 <%@page import="sic.hust.multiple.choise.dao.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,7 +20,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
               integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-        <title>Manage User</title>
+        <title>Manage Question</title>
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -34,6 +30,7 @@
     </head>
 
     <body>
+
         <!-- =============================  Header menu of page  ============================= -->
         <%@include file="../jsp/HeaderMenuUser.jsp" %>
         <div class="container" style="background-color: #ccc">
@@ -41,32 +38,38 @@
             <br/>
             <br/>
             <%
-                ExamServiceImpl service = new ExamServiceImpl();
-                List<Exam> exams = service.findAllExams();
+                QuestionServiceImpl service = new QuestionServiceImpl();
+                List<Question> questions = service.findAllQuestion();
                 int i = 1;
             %>
             <div class="col-lg-9">
                 <center style="color: SlateBlue;">
-                    <h2>This is the list users</h2>
+                    <h2>This is the list question</h2>
                 </center>
             </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Quantity Question</th>
-                        <th>Id Questions</th>
-                        <th>Actions</th>
+                        <th>Title</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                        <th>Option C</th>
+                        <th>Option D</th>
+                        <th>Answer</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tr>
-                    <% for (Exam exam : exams) {%>
+                    <% for (Question question : questions) {%>
 
                     <td><%= i%></td>
-                    <td><%= exam.getName()%></td>
-                    <td><%= exam.getQuantityQues()%></td>
-                    <td><%= exam.getIdQues()%></td>
+                    <td><%= question.getTitle()%></td>
+                    <td><%= question.getOptionA()%></td>
+                    <td><%= question.getOptionB()%></td>
+                    <td><%= question.getOptionC()%></td>
+                    <td><%= question.getOptionD()%></td>
+                    <td><%= question.getAnswer()%></td>
                     <td><button type="button" class="btn btn-danger">Delete</button></td>
                 </tr>
                 <%
