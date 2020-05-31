@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> Logout Admin Page</title>
+        <title>Multiple Choise</title>
     </head>
     <body>
         <h1>Welcome to admin logout page</h1>

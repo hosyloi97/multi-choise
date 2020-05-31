@@ -264,6 +264,31 @@ public class DBConnection {
         return question;
     }
 
+    public List<Question> findQuestionByTopicId(int id) throws SQLException {
+        String sql = "select * from question where topicId=?";
+        connect();
+        List<Question> questions = new ArrayList<Question>();
+        PreparedStatement state = conn.prepareStatement(sql);
+        state.setInt(1, id);
+        ResultSet rs = state.executeQuery();
+        while (rs.next()) {
+            Question question = new Question();
+            question.setId(rs.getInt("id"));
+            question.setTitle(rs.getString("title"));
+            question.setTopicId(rs.getInt("topicId"));
+            question.setOptionA(rs.getString("optionA"));
+            question.setOptionB(rs.getString("optionB"));
+            question.setOptionC(rs.getString("optionC"));
+            question.setOptionD(rs.getString("optionD"));
+            question.setAnswer(rs.getString("answer"));
+            questions.add(question);
+        }
+        rs.close();
+        state.close();
+        disconnect();
+        return questions;
+    }
+
     public boolean addNewQuestion(Question question) throws SQLException {
         boolean check = false;
         String sql = "insert into question(title, optionA,optionB,optionC,optionD,answer,topicId) VALUES(?,?,?,?,?,?,?)";
@@ -284,6 +309,23 @@ public class DBConnection {
         return check;
     }
 
+    public List<Integer> findAllQuestionId() throws SQLException{
+        List<Integer> ids = new ArrayList<Integer>();
+        connect();
+        Statement state = null;
+        String sql = "select id from question";
+        state = conn.createStatement();
+        ResultSet rs = state.executeQuery(sql);
+        while (rs.next()) {
+            Question question = new Question();
+            question.setId(rs.getInt("id"));
+            ids.add(question.getId());
+        }
+        rs.close();
+        state.close();
+        disconnect();
+        return ids;
+    }
     //    --------------------------------------DAO for Topic---------------------------------------------------->
     public List<Topic> findAllTopics() throws SQLException {
         connect();

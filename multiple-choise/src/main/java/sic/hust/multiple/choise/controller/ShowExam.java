@@ -29,7 +29,7 @@ public class ShowExam extends HttpServlet {
         System.out.println(id);
         HttpSession session = request.getSession(true);
         session.setAttribute("id", id);
-        response.sendRedirect("Exam.jsp");
+        response.sendRedirect("/multiChoise/doExam");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,32 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- css icon -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-              integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-        <title>Multiple Choise</title>
-
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-        <!-- Custom styles for this template -->
-        <!--<link href="css/login.css" rel="stylesheet">-->
-    </head>
+    <%@include file="./jsp/Header.jsp" %>
 
     <body>
 
         <!-- =============================  Header menu of page  ============================= -->
-            <%@include file="./jsp/HeaderMenuGuest.jsp"%>
-           
+        <%@include file="./jsp/HeaderMenuGuest.jsp"%>
+
 
         <!-- ============================= body of page ============================= -->
-            <%@include file="./jsp/BodyGuest.jsp"%>
-            
+        <%@include file="./jsp/BodyGuest.jsp"%>
+
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
@@ -35,6 +21,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     </body>
-            <!-- ============================= footer of page ============================= -->
-            <%@include file="./jsp/Footer.jsp"%>
+    <!-- ============================= footer of page ============================= -->
+    <%@include file="./jsp/Footer.jsp"%>
 </html>

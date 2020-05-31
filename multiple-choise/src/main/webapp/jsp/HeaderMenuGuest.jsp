@@ -3,7 +3,7 @@
 <div class id="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="http://localhost:8080/multiChoise/">Multiple Choise</a>
+            <a class="navbar-brand" href="/multiChoise/">Multiple Choise</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu"
                     aria-controls="navbar_menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbar_menu">
                 <ul class="navbar-nav col-lg-5">
                     <li class="nav-item active">
-                        <a class="nav-link" href="http://localhost:8080/multiChoise/">Trang chủ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/multiChoise/">Trang chủ<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Giới thiệu</a>

@@ -17,4 +17,10 @@ public interface IQuestionService {
     public List<Question> findAllQuestion();
 
     public Question findQuestionByid(int id);
+
+    public List<Question> findQuestionByTopicId(int id);
+    
+    public List<Integer> findAllQuestionIds();
+    
+    public List<Integer> randomQuestions(List<Integer> ids);
 }

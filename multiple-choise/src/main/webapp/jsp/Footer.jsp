@@ -13,8 +13,8 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Multiple Choise</h6>
-                <p>Chào mừng các bạn đã đến với Multiple Choise- Hệ thống ôn thi Lịch sử bằng hình thức trắc nghiệm đẳng cấp thế giới.
-                    Với sứ mệnh biến bạn từ siêu ngu thành bá cmn đạo môn Lịch sử, chúng tôi sẽ chắp cánh cho ước mơ của bạn.</p>
+                <p>Chào mừng các bạn đã đến với Multiple Choise- Hệ thống ôn thi Lịch sử bằng hình thức trắc nghiệm.
+                    Với khẩu hiệu "Sự hài lòng của bạn - Chúng tôi ngày hôm nay", sẽ không bao giờ các bạn phải hối hận khi đã đặt niềm tin vào chúng tôi.</p>
             </div>
             <!-- Grid column -->
 

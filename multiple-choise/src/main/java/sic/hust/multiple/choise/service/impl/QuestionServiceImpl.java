@@ -43,9 +43,34 @@ public class QuestionServiceImpl implements IQuestionService {
         return question;
     }
 
-//    public static void main(String[] args) {
-//        QuestionServiceImpl service = new QuestionServiceImpl();
-//        System.out.println(service.findQuestionByid(20));
-//    }
-
+    @Override
+    public List<Question> findQuestionByTopicId(int id) {
+        List<Question> questions = new ArrayList<Question>();
+        try {
+            questions = dao.findQuestionByTopicId(id);
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return questions;
+    }
+    
+     public List<Integer> findAllQuestionIds(){
+      List<Integer> ids = new ArrayList<Integer>();
+      try {
+            ids = dao.findAllQuestionId();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+      return ids;
+     }
+     
+      public List<Integer> randomQuestions(List<Integer> ids){
+          List<Integer> listIds = new ArrayList<>(); 
+          
+          return listIds;
+      }
+    public static void main(String[] args) {
+        QuestionServiceImpl service = new QuestionServiceImpl();
+        System.out.println(service.findAllQuestionIds());
+    }
 }
